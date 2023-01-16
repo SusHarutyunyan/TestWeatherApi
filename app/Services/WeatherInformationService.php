@@ -39,12 +39,17 @@ class WeatherInformationService
         return false;
     }
 
-    public function getHistory(string $day): Collection
+    public function getHistory(string $day): ?Collection
     {
+        $city = \App\Facades\City::getCity();
+        if (!$city) {
+            return null;
+        }
         $start = Carbon::createFromFormat('Y-m-d', $day)->startOfDay()->getTimestamp();
         $end = Carbon::createFromFormat('Y-m-d', $day)->endOfDay()->getTimestamp();
 
         return WeatherInformation::query()
+            ->where('city_id', $city->id)
             ->where('time' , '>=' , $start)
             ->where('time' , '<=' , $end)
             ->get();

@@ -30,13 +30,10 @@ class UpdateWeatherInfo extends Command
      */
     public function handle()
     {
-        $cityName = env('OPEN_WEATHER_CURRENT_CITY');
-        $city = City::query()->where([
-            'name' => $cityName,
-        ])->first();
+        $city = \App\Facades\City::getCity();
 
         if (!$city) {
-
+            $cityName = env('OPEN_WEATHER_CURRENT_CITY');
             $apiCityInfo = OpenWeather::getCityInfoByName($cityName);
 
             if ($apiCityInfo['success']) {

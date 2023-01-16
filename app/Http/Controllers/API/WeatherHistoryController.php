@@ -13,7 +13,7 @@ class WeatherHistoryController extends Controller
     {
         $history = WeatherInformation::getHistory($day);
 
-        if ($history->isEmpty()) {
+        if (!$history || $history->isEmpty()) {
             return response()->json([
                 'message' => 'No notes found.'
             ], 404);

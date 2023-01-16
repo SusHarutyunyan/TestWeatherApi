@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static bool saveWeatherInformation(\App\Models\City $city)
- * @method static Collection getHistory(string $day)
+ * @method static ?Collection getHistory(string $day)
  *
  * @see WeatherInformationService
  */
