@@ -28,9 +28,10 @@ _* Copy project to your local machine, Copy .env.example file to your local .env
   GET /api/history/{day}
 ```
 
-| Parameter | Type     | Description  |
-|:----------| :------- |:-------------|
-| `day`     | `string` | Format Y-m-d |
+| Parameter | Type     | Description                                                                            |
+|:----------| :------- |:---------------------------------------------------------------------------------------|
+| `x-token` | `string` | Header parameter. Use 'rhjrc1q37pu2jcrcnch414qy3pomtlej' to get access to the endpoint |
+| `day`     | `string` | Format Y-m-d                                                                           |
 
 
 
