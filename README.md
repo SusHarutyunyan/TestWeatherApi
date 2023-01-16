@@ -17,39 +17,20 @@ _* Copy project to your local machine, Copy .env.example file to your local .env
   php artisan migrate
 ```
 
-* Configure cronjob in your local environment with period (* * * * *) for command, or run manually from project root
+* Command is scheduled to run hourly, but you can run it manually from project root
 ```bash
-  php artisan dispatch:weather-jobs
+   php artisan update:weather-info
 ```
-
-* Configure supervisor in your local machine for command, or run manually from project root
-```bash
-   php artisan queue:listen --queue=WeatherInfoUpdate
-```
-
-## API Reference
-
-#### Create city
-
-```http
-  POST /api/create-city
-```
-
-| Parameter  | Type     | Description                |
-| :--------  | :------- | :------------------------- |
-| `name`     | `string` | **Required**. City name    |
-| `latitude` | `float`  | **Required**. Latitude     | 
-| `longitude`| `float`  | **Required**. Longitude    | 
 
 #### Get weather information
 
 ```http
-  GET /api/weather-info
+  GET /api/history/{day}
 ```
 
-| Parameter | Type     | Description                                     |
-| :-------- | :------- | :---------------------------------------------- |
-| `cityName`| `string` | **Optional**. City name to filter weahter info  |
+| Parameter | Type     | Description  |
+|:----------| :------- |:-------------|
+| `day`     | `string` | Format Y-m-d |
 
 
 
