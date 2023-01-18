@@ -26,11 +26,7 @@ class WeatherInformationService
             }
             $weatherInformation = new WeatherInformation();
             $weatherInformation->time = $weatherData['dt'];
-            $weatherInformation->min = $weatherData['main']['temp_min'];
-            $weatherInformation->max = $weatherData['main']['temp_max'];
             $weatherInformation->temperature = $weatherData['main']['temp'];
-            $weatherInformation->pressure = $weatherData['main']['pressure'];
-            $weatherInformation->humidity = $weatherData['main']['humidity'];
             $weatherInformation->city_id = $city->id;
 
             return $weatherInformation->save();
